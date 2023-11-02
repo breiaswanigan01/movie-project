@@ -3,17 +3,16 @@ import Main from "../components/Main";
 import Row from "../components/Row";
 import requests from "../Requests";
 const Home = () => {
-  return(
-  <>
-  <Main />
-  <Row title='UpComing' fetchURL={requests.requestUpcoming} />
-  <Row title='Popular' fetchURL={requests.requestPopular} />
-  <Row title='Top Rated' fetchURL={requests.requestTopRated} />
-  <Row title='Popular Tv' fetchURL={requests.requestPopularTv} />
-  <Row title='Top Rated Tv' fetchURL={requests.requestTopRatedTv} />
-  <Row title='Airing Today Tv' fetchURL={requests.requestAiringTodayTv} />
-  </>
-  )
+  return (
+    <>
+      <Main />
+      <Row rowID='1' title="Popular" fetchURL={requests.requestPopular} />
+      <Row rowID='2' title="Top Rated" fetchURL={requests.requestTopRated} />
+      <Row rowID='3' title="Trending Movies" fetchURL={requests.requestTrending} />
+      <Row rowID='4' title="Fav Movies" fetchURL={requests.requestFavs} />
+      <Row rowID='5' title="UpComing" fetchURL={requests.requestUpcoming} />
+    </>
+  );
 };
 
 export default Home;
