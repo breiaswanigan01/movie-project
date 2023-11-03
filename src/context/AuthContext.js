@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -7,14 +7,21 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
+import { setDoc, doc } from "firebase/firestore";
 const AuthContext = createContext();
 
 // our context
 export function AuthContextProvider({ children }) {
   const [user, setUser] = useState({});
   // signUp
+  // whenver this function is run, it will create a new user in the database
+  // creates a user and email file
   function signUp(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password);
+    createUserWithEmailAndPassword(auth, email, password);
+    //
+    setDoc(doc(db, "users", email), {
+      savedShows: [],
+    });
   }
   //   signIn
   function logIn(email, password) {
@@ -27,7 +34,7 @@ export function AuthContextProvider({ children }) {
   // state change
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    
+      setUser(currentUser);
     });
     return () => {
       unsubscribe();

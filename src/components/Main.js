@@ -14,7 +14,7 @@ const Main = () => {
     });
   }, []);
   //   console.log(movie);
-//   a function to alter the amount of words displayed in the overview
+  //   a function to alter the amount of words displayed in the overview
   const truncateString = (str, num) => {
     if (str?.length > num) {
       return str.slice(0, num) + "...";
