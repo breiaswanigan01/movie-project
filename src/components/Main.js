@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import requests from "../Requests";
 import axios from "axios";
+
 const Main = () => {
   // use state to get the updated movies displayed
   const [movies, setMovies] = useState([]);
@@ -55,7 +56,9 @@ const Main = () => {
           </p>
         </div>
       </div>
+    
     </div>
+  
   );
 };
 

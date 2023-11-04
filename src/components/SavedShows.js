@@ -27,7 +27,7 @@ const SavedShows = () => {
   const movieRef = doc(db, "users", `${user?.email}`);
   const deleteShow = async (passedID) => {
     try {
-        // takes an array and creates a new one of what you don't want included
+      // takes an array and creates a new one of what you don't want included
       const result = movies.filter((item) => item.id !== passedID);
       await updateDoc(movieRef, {
         savedShows: result,
@@ -38,11 +38,11 @@ const SavedShows = () => {
   };
   return (
     <>
-      <h2 className="text-white font-bold md:text-xl p-4">My Shows</h2>
+      <h2 className="text-white font-bold md:text-xl p-4">My Watchlist</h2>
       <div className="relative flex items-center group">
         <MdChevronLeft
           onClick={slideLeft}
-          className="bg-white left-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block"
+          className="bg-blue-600/75 left-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block"
           size={40}
         />
         <div
@@ -65,9 +65,9 @@ const SavedShows = () => {
                   {item?.title}
                 </p>
                 <p
-                // passing in an ID 
+                  // passing in an ID
                   onClick={() => deleteShow(item.id)}
-                  className="absolute text-gray-300 top-4 right-4"
+                  className="absolute text-blue-600 top-4 right-4"
                 >
                   {" "}
                   <AiOutlineClose />{" "}
@@ -78,7 +78,7 @@ const SavedShows = () => {
         </div>
         <MdChevronRight
           onClick={slideRight}
-          className="bg-white right-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block"
+          className="bg-blue-600/75 right-0 rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block"
           size={40}
         />
       </div>
