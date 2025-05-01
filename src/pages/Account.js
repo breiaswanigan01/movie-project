@@ -3,7 +3,7 @@ import SavedShows from "../components/SavedShows";
 
 const Account = () => {
   return (
-    <>
+    <div>
       <div className="w-full text-white">
         <img
           className="w-full h-[400px] object-cover"
@@ -16,7 +16,8 @@ const Account = () => {
         </div>
       </div>
       <SavedShows />
-    </>
+
+  </div>
   );
 };
 

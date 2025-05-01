@@ -7,7 +7,8 @@ import Signup from "./pages/Signup";
 import Account from "./pages/Account";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
-
+import MovieDetail from "./pages/MovieDetail";
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <>
@@ -17,6 +18,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+        <Route path="/movie/:id" element={<MovieDetail />} />
+
           <Route
             path="/account"
             element={
@@ -27,6 +30,11 @@ function App() {
           />
         </Routes>
       </AuthContextProvider>
+     
+
+
+<Toaster position="top-right" reverseOrder={false} />
+
     </>
   );
 }
